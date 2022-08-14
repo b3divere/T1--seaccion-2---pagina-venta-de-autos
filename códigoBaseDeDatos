@@ -1,0 +1,152 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 14-08-2022 a las 19:04:50
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 7.4.29
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `carshop`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `autos`
+--
+
+CREATE TABLE `autos` (
+  `placa` varchar(10) NOT NULL,
+  `modelo` varchar(25) DEFAULT NULL,
+  `marca` varchar(20) DEFAULT NULL,
+  `cantidad` int(3) DEFAULT NULL,
+  `precio` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `autos`
+--
+
+INSERT INTO `autos` (`placa`, `modelo`, `marca`, `cantidad`, `precio`) VALUES
+('0353LQG', 'priora', 'lada', 8, 9000000),
+('0428XAY', 'cullinan', 'rolls royce', 5, 355000000),
+('0551QDD', 'volt', 'chevrolet', 10, 13500000),
+('1167PWR', 'kona', 'hyundai', 16, 12500000),
+('1439UFR', 'ka', 'ford', 15, 12000000),
+('2003IXD', '500x', 'fiat', 6, 11000000),
+('2240LFP', 'jazz', 'honda', 13, 10000000),
+('4897VAK', 'glb', 'mercedez benz', 2, 21500000),
+('5048IPC', 'a1', 'audi', 10, 25000000),
+('7288COP', 'aveo', 'chevrolet', 11, 13000000);
+
+--
+-- Disparadores `autos`
+--
+DELIMITER $$
+CREATE TRIGGER `car_sell` BEFORE UPDATE ON `autos` FOR EACH ROW INSERT INTO venta_auto
+(placa, modelo, marca, precio, cantidad, F_MODIF)
+VALUES
+(OLD.placa, OLD.modelo, OLD.marca, OLD.precio, NEW.cantidad, NOW())
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `rut` varchar(12) NOT NULL,
+  `nombre` varchar(20) DEFAULT NULL,
+  `apellido` varchar(20) DEFAULT NULL,
+  `placa` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `clientes`
+--
+
+INSERT INTO `clientes` (`rut`, `nombre`, `apellido`, `placa`) VALUES
+('15981087-7', 'josé', 'hernandez', '0353LQG'),
+('17030212-8', 'vanesa', 'borja', '0428XAY'),
+('17666153-6', 'angel', 'alcantara', '0551QDD'),
+('18200311-1', 'mariana', 'pellicer', '1167PWR'),
+('18329097-3', 'jahseh', 'onfroy', '1439UFR'),
+('19000315-2', 'maria', 'aranzazu', '2003IXD'),
+('19029097-6', 'jarad', 'higgins', '2240LFP'),
+('19918027-2', 'luis', 'villa', '4897VAK'),
+('20076616-3', 'ona', 'vilches', '5048IPC'),
+('21015017-4', 'juan', 'romo', '7288COP');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `venta_auto`
+--
+
+CREATE TABLE `venta_auto` (
+  `placa` varchar(10) DEFAULT NULL,
+  `modelo` varchar(25) DEFAULT NULL,
+  `marca` varchar(20) DEFAULT NULL,
+  `precio` int(11) DEFAULT NULL,
+  `cantidad` int(11) DEFAULT NULL,
+  `F_MODIF` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `venta_auto`
+--
+
+INSERT INTO `venta_auto` (`placa`, `modelo`, `marca`, `precio`, `cantidad`, `F_MODIF`) VALUES
+('0428XAY', 'cullinan', 'rolls royce', 355000000, 11, '2022-08-14'),
+('0428XAY', 'cullinan', 'rolls royce', 355000000, 14, '2022-08-14'),
+('0428XAY', 'cullinan', 'rolls royce', 355000000, 5, '2022-08-14');
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `autos`
+--
+ALTER TABLE `autos`
+  ADD PRIMARY KEY (`placa`);
+
+--
+-- Indices de la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`rut`),
+  ADD KEY `placa` (`placa`);
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `clientes`
+--
+ALTER TABLE `clientes`
+  ADD CONSTRAINT `clientes_ibfk_1` FOREIGN KEY (`placa`) REFERENCES `autos` (`placa`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+
+
