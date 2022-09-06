@@ -63,13 +63,13 @@
 			</div>
 		</header>
 
-		<div class="fh5co-hero" style="background-image: url(images/hero_4.jpg);" data-stellar-background-ratio="0.5">
+		<div class="fh5co-hero" style="background-image: url(images/hero_2.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row">
 					<div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
 						<div class="fh5co-intro fh5co-table-cell">
-							<h1 class="text-center">Incribe tu Vehiculo</h1>
+							<h1 class="text-center">Inscribe tu Vehiculo</h1>
 							<p>Aqui puedes poner a la venta tu automovil, con sencillos pasos</p>
 						</div>
 					</div>
@@ -91,7 +91,50 @@
 					</div>
 					<div class="col-md-6">
 						<p>Datos</p>
+						<div class="col-md-6">
+							
+				<form action="../../form-result.php" target="_blank">
+
+  				<fieldset>
+
+   				 <legend>Información personal</legend>
+
+   					 <p><label>Rut: <input type="text" name="rut"></label></p>
+   					 <p><label>Nombre: <input type="text" name="nombre"></label></p>
+   					 <p><label>Apellido: <input type="text" name="apellido"></label></p>
+   					 <p><label>Dirección: <input type="text" name="direccion"></label></p>
+   					 <p><label>Numero de Contacto: <input type="text" name="ncontacto"></label></p>
+					 <p><label>Correo Electronico: <input type="text" name="correo"></label></p>
+  				</fieldset>
+
+ 				<fieldset>
+
+    			<legend>Información del Vehiculo</legend>
+
+					  <p>
+					    Tipo De Vehiculo:<br>
+
+					    <input type="radio" name="Vehiculo" value="Automovil"> Automovil <br>
+					    <input type="radio" name="Vehiculo" value="Motocicleta"> Motocicleta <br>
+					    <input type="radio" name="Vehiculo" value="Camion"> Camion <br>
+					    <input type="radio" name="Vehiculo" value="CasaRodante"> CasaRodante <br>
+					    <input type="radio" name="Vehiculo" value="Bus"> Bus <br>
+					    <input type="radio" name="Vehiculo" value="Maquinaria"> Maquinaria <br>
+					  </p>
+					 <p><label>Marca: <input type="text" name="marca"></label></p>
+					 <p><label>Modelo: <input type="text" name="modelo"></label></p>
+   					 <p><label>Patente: <input type="text" name="patente"></label></p>
+   					 <p><label>Precio: <input type="text" name="precio"></label></p>
+
+ 				 </fieldset>
+
+				  <div class="form-group">
+					<input type="submit" value="Enviar Formulario" class="btn btn-primary btn-md">
+				</div>
+
+				</form>
 						
+						</div>
 					</div>
 					<div class="col-md-6">
 						<p>Fotos</p>
