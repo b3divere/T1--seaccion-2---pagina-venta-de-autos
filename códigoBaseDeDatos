@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-08-2022 a las 19:04:50
+-- Tiempo de generación: 28-09-2022 a las 02:05:19
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -31,7 +31,7 @@ CREATE TABLE `autos` (
   `placa` varchar(10) NOT NULL,
   `modelo` varchar(25) DEFAULT NULL,
   `marca` varchar(20) DEFAULT NULL,
-  `cantidad` int(3) DEFAULT NULL,
+  `estado` varchar(15) DEFAULT NULL,
   `precio` int(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -39,26 +39,33 @@ CREATE TABLE `autos` (
 -- Volcado de datos para la tabla `autos`
 --
 
-INSERT INTO `autos` (`placa`, `modelo`, `marca`, `cantidad`, `precio`) VALUES
-('0353LQG', 'priora', 'lada', 8, 9000000),
-('0428XAY', 'cullinan', 'rolls royce', 5, 355000000),
-('0551QDD', 'volt', 'chevrolet', 10, 13500000),
-('1167PWR', 'kona', 'hyundai', 16, 12500000),
-('1439UFR', 'ka', 'ford', 15, 12000000),
-('2003IXD', '500x', 'fiat', 6, 11000000),
-('2240LFP', 'jazz', 'honda', 13, 10000000),
-('4897VAK', 'glb', 'mercedez benz', 2, 21500000),
-('5048IPC', 'a1', 'audi', 10, 25000000),
-('7288COP', 'aveo', 'chevrolet', 11, 13000000);
+
+INSERT INTO `autos` (`placa`, `modelo`, `marca`, `estado`, `precio`) VALUES
+('0353LQG', 'priora', 'lada', 'vendido', 9000000),
+('0428XAY', 'cullinan', 'rolls royce', 'vendido', 355000000),
+('0551QDD', 'volt', 'chevrolet', 'vendido', 13500000),
+('1167PWR', 'kona', 'hyundai', 'vendido', 12500000),
+('1439UFR', 'ka', 'ford', 'vendido', 12000000),
+('2003IXD', '500x', 'fiat', 'vendido', 11000000),
+('2240LFP', 'jazz', 'honda', 'vendido', 10000000),
+('4897VAK', 'glb', 'mercedez benz', 'vendido', 21500000),
+('5048IPC', 'a1', 'audi', 'vendido', 25000000),
+('7288COP', 'aveo', 'chevrolet', 'vendido', 13000000);
 
 --
 -- Disparadores `autos`
 --
 DELIMITER $$
+CREATE TRIGGER `car_AI` AFTER INSERT ON `autos` FOR EACH ROW INSERT INTO new_car(placa, modelo, marca, estado, precio, fecha_agregado)
+VALUES(NEW.placa, NEW.modelo, NEW.marca, NEW.estado, 
+NEW.precio, NOW())
+$$
+DELIMITER ;
+DELIMITER $$
 CREATE TRIGGER `car_sell` BEFORE UPDATE ON `autos` FOR EACH ROW INSERT INTO venta_auto
-(placa, modelo, marca, precio, cantidad, F_MODIF)
+(placa, modelo, marca, precio, estado, F_MODIF)
 VALUES
-(OLD.placa, OLD.modelo, OLD.marca, OLD.precio, NEW.cantidad, NOW())
+(OLD.placa, OLD.modelo, OLD.marca, OLD.precio, OLD.estado, NOW())
 $$
 DELIMITER ;
 
@@ -91,6 +98,51 @@ INSERT INTO `clientes` (`rut`, `nombre`, `apellido`, `placa`) VALUES
 ('20076616-3', 'ona', 'vilches', '5048IPC'),
 ('21015017-4', 'juan', 'romo', '7288COP');
 
+--
+-- Disparadores `clientes`
+--
+DELIMITER $$
+CREATE TRIGGER `cliente_AI` AFTER INSERT ON `clientes` FOR EACH ROW INSERT INTO new_client(rut, nombre, apellido, placa, fecha_registrado)
+VALUES(NEW.rut, NEW.nombre, NEW.apellido, NEW.placa, NOW())
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `new_car`
+--
+
+CREATE TABLE `new_car` (
+  `placa` varchar(10) DEFAULT NULL,
+  `modelo` varchar(25) DEFAULT NULL,
+  `marca` varchar(20) DEFAULT NULL,
+  `estado` varchar(15) DEFAULT NULL,
+  `Precio` int(11) DEFAULT NULL,
+  `fecha_agregado` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `new_car`
+--
+
+INSERT INTO `new_car` (`placa`, `modelo`, `marca`, `estado`, `Precio`, `fecha_agregado`) VALUES
+('21312XYF', 'inventado', 'ford', "vendido", 30000000, '2022-09-13 18:09:05');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `new_client`
+--
+
+CREATE TABLE `new_client` (
+  `rut` varchar(12) DEFAULT NULL,
+  `nombre` varchar(20) DEFAULT NULL,
+  `apellido` varchar(20) DEFAULT NULL,
+  `placa` varchar(10) DEFAULT NULL,
+  `fecha_registrado` datetime DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 -- --------------------------------------------------------
 
 --
@@ -102,7 +154,7 @@ CREATE TABLE `venta_auto` (
   `modelo` varchar(25) DEFAULT NULL,
   `marca` varchar(20) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL,
-  `cantidad` int(11) DEFAULT NULL,
+  `estado` varchar(15) DEFAULT NULL,
   `F_MODIF` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -110,10 +162,10 @@ CREATE TABLE `venta_auto` (
 -- Volcado de datos para la tabla `venta_auto`
 --
 
-INSERT INTO `venta_auto` (`placa`, `modelo`, `marca`, `precio`, `cantidad`, `F_MODIF`) VALUES
-('0428XAY', 'cullinan', 'rolls royce', 355000000, 11, '2022-08-14'),
-('0428XAY', 'cullinan', 'rolls royce', 355000000, 14, '2022-08-14'),
-('0428XAY', 'cullinan', 'rolls royce', 355000000, 5, '2022-08-14');
+INSERT INTO `venta_auto` (`placa`, `modelo`, `marca`, `precio`, `estado`, `F_MODIF`) VALUES
+('0428XAY', 'cullinan', 'rolls royce', 355000000, "vendido", '2022-08-14'),
+('0428XAY', 'cullinan', 'rolls royce', 355000000, "vendido", '2022-08-14'),
+('0428XAY', 'cullinan', 'rolls royce', 355000000, "vendido", '2022-08-14');
 
 --
 -- Índices para tablas volcadas
@@ -146,7 +198,6 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
 
 
 
