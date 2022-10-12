@@ -1,0 +1,26 @@
+.imagen_autos{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+li{
+    list-style: none;
+}
+
+.titulo{
+    width: 100%;
+    text-align: center;
+}
+
+.autos img{
+    width: 300px;
+    height: 250px;
+    border: solid 1px black;
+}
+
+.autos{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 1rem;
+}
