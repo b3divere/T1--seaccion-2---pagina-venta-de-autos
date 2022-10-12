@@ -13,7 +13,12 @@
   $corre = $_GET["correo"];
 //Realizo la consulta SQL (llamada al Proc Almacenado)
 $respuesta = mysqli_query($bd, "CALL ActualizaPoblacionPais($rut, $nom, $ape, $dire, $ncontac, $corre)");
-  
+  $marc  = $_GET["marca"];
+  $mod =  $_GET["modelo"];
+  $pat = $_GET["patente"];
+  $prec = $_GET["precio"];
+//Realizo la consulta SQL (llamada al Proc Almacenado)
+$respuesta = mysqli_query($bd, "CALL ActualizaPoblacionPais($marc, $mod, $pat, $prec");
 
 //Muestro un mensaje si todo estuvo bien.
 if($respuesta)
