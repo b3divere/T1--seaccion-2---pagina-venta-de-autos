@@ -15,14 +15,14 @@
   $mod =  $_GET["modelo"];
   $pat = $_GET["patente"];
   $prec = $_GET["precio"];
+
 //Realizo la consulta SQL (llamada al Proc Almacenado)
-<<<<<<< Updated upstream
-$respuesta = mysqli_query($bd, "CALL cliente_AI($rut, $nom, $ape, $dire, $ncontac, $corre,$marc, $mod, $pat, $prec")");
+$respuesta = mysqli_query($bd, "CALL cliente_AI($rut, $nom, $ape, $dire, $ncontac, $corre, $marc, $mod, $pat, $prec)");
   
 
 //Muestro un mensaje si todo estuvo bien.
 if($respuesta)
-   echo "Los precios fueron actualizados";
+   echo "Los datos fueron enviados";
 else
    echo "Ocurrió un error";
 ?>
