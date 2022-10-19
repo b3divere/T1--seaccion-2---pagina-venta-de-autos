@@ -63,7 +63,7 @@
 			</div>
 		</header>
 
-		<div class="fh5co-hero" style="background-image: url(images/hero_2.jpg);" data-stellar-background-ratio="0.5">
+		<div class="fh5co-hero" style="background-image: url(images/azul.jpg);" data-stellar-background-ratio="0.5">
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row">
@@ -93,9 +93,11 @@
 						<p>Datos</p>
 						<div class="col-md-6">
 							
-				<form action="../../form-result.php" target="_blank">
+		<form action="formulario.php" method= "get">
 
-  				<fieldset>
+  				
+			<div class="form-group">
+				<fieldset>
 
    				 <legend>Información personal</legend>
 
@@ -128,23 +130,24 @@
 
  				 </fieldset>
 
-				  <div class="form-group">
-					<input type="submit" value="Enviar Formulario" class="btn btn-primary btn-md">
-				</div>
-
-				</form>
-						
+			</div>
+	
 				</div>
 					</div>
 					<div>
 						<p>Fotos</p>
-						<form>
-							<label for="myfile">Subir imagen</label>
-							<input type="file" id="myfile" name="myfile" class="btn btn-primary btn-md">
-						</form>
+							<label for="myfile">Subir imagen de tu vehiculo</label>
+							<p>Imagenes con formato JPG, GIF y PNG</p>
+							<input type="file" name="imagenes1">
+							<input type="file" name="imagenes2">
+							<input type="file" name="imagenes3">
+							<input type="file" name="imagenes4">
 					</div>
 				</div>
-
+				<p>Verificaremos que este todo correcto y activaremos tu publicacion</p>
+				<input type="submit" value="Enviar Datos" class="btn btn-primary btn-md">
+		</form>
+			
 			</div>
 		</div>
 
