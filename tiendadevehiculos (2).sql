@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2022 a las 20:16:13
+-- Tiempo de generación: 09-11-2022 a las 00:30:27
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -192,6 +192,11 @@ INSERT INTO `registrovehiculos` (`marca`, `modelo`, `patente`, `precio`, `idusua
 CREATE TABLE `registro_usuario` (
   `usuario` varchar(30) NOT NULL,
   `clave` varchar(30) DEFAULT NULL,
+  `rut` varchar(12) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `direccion` varchar(65) NOT NULL,
+  `numerocontacto` int(11) NOT NULL,
   `correoelectronico` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
