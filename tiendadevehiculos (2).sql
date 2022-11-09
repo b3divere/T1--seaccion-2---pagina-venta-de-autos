@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2022 a las 15:14:21
+-- Tiempo de generación: 09-11-2022 a las 00:30:27
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -25,7 +25,13 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminavehiculo` (`id` VARCHAR(3))   DELETE FROM inscripcion WHERE idusuario=id$$
+CREATE DEFINER=`root`@`localhost` PROCEDURE `eliminavehiculo` (IN `placa` VARCHAR(10))   DELETE FROM inscripcion WHERE patente=placa$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `ingresousuario` (`usuario` VARCHAR(30), `clave` VARCHAR(30), `idusuario` VARCHAR(3))   INSERT INTO inicio_de_sesion 
+VALUES (usuario, clave, idusuario)$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `nuevocomentario` (`comentario` VARCHAR(300), `idusuario` VARCHAR(3))   INSERT INTO comentarios 
+VALUES (comentario, idusuario)$$
 
 DELIMITER ;
 
@@ -45,7 +51,8 @@ CREATE TABLE `comentarios` (
 --
 
 INSERT INTO `comentarios` (`comentario`, `idusuario`) VALUES
-('sdfsdfds', 'a11');
+('sdfsdfds', 'a11'),
+('sdfsdfsdfsdfsdfsd', 'a11');
 
 --
 -- Disparadores `comentarios`
@@ -74,7 +81,8 @@ CREATE TABLE `ingresousuario` (
 INSERT INTO `ingresousuario` (`usuario`, `idusuario`, `fecha`) VALUES
 (NULL, NULL, '2022-11-05 21:03:44'),
 ('usuario2', 'a22', '2022-11-05 21:09:47'),
-('usuario1', 'a11', '2022-11-05 21:26:03');
+('usuario1', 'a11', '2022-11-05 21:26:03'),
+('werwer', 'a33', '2022-11-06 16:11:38');
 
 -- --------------------------------------------------------
 
@@ -84,7 +92,7 @@ INSERT INTO `ingresousuario` (`usuario`, `idusuario`, `fecha`) VALUES
 
 CREATE TABLE `inicio_de_sesion` (
   `usuario` varchar(30) DEFAULT NULL,
-  `contraseña` varchar(30) DEFAULT NULL,
+  `clave` varchar(30) DEFAULT NULL,
   `idusuario` varchar(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -92,8 +100,9 @@ CREATE TABLE `inicio_de_sesion` (
 -- Volcado de datos para la tabla `inicio_de_sesion`
 --
 
-INSERT INTO `inicio_de_sesion` (`usuario`, `contraseña`, `idusuario`) VALUES
-('usuario1', 'A21DXL616', 'a11');
+INSERT INTO `inicio_de_sesion` (`usuario`, `clave`, `idusuario`) VALUES
+('usuario1', 'A21DXL616', 'a11'),
+('werwer', 'werwerwe', 'a33');
 
 --
 -- Disparadores `inicio_de_sesion`
@@ -148,7 +157,8 @@ CREATE TABLE `registrocomentarios` (
 --
 
 INSERT INTO `registrocomentarios` (`comentario`, `idusuario`, `fecha`) VALUES
-('sdfsdfds', 'a11', '2022-11-05 21:26:37');
+('sdfsdfds', 'a11', '2022-11-05 21:26:37'),
+('sdfsdfsdfsdfsdfsd', 'a11', '2022-11-06 16:03:27');
 
 -- --------------------------------------------------------
 
@@ -170,7 +180,8 @@ CREATE TABLE `registrovehiculos` (
 --
 
 INSERT INTO `registrovehiculos` (`marca`, `modelo`, `patente`, `precio`, `idusuario`, `fecha`) VALUES
-('rolls royce', 'cullinan', 'ASD23', 355000000, 'a11', '2022-11-05 22:32:30');
+('rolls royce', 'cullinan', 'ASD23', 355000000, 'a11', '2022-11-05 22:32:30'),
+('rolls royce', 'cullinan', 'ASD23', 355000000, 'a11', '2022-11-06 16:14:10');
 
 -- --------------------------------------------------------
 
@@ -180,7 +191,12 @@ INSERT INTO `registrovehiculos` (`marca`, `modelo`, `patente`, `precio`, `idusua
 
 CREATE TABLE `registro_usuario` (
   `usuario` varchar(30) NOT NULL,
-  `contraseña` varchar(30) DEFAULT NULL,
+  `clave` varchar(30) DEFAULT NULL,
+  `rut` varchar(12) NOT NULL,
+  `nombre` varchar(30) NOT NULL,
+  `apellido` varchar(30) NOT NULL,
+  `direccion` varchar(65) NOT NULL,
+  `numerocontacto` int(11) NOT NULL,
   `correoelectronico` varchar(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -205,7 +221,8 @@ CREATE TABLE `vehiculoseliminados` (
 
 INSERT INTO `vehiculoseliminados` (`marca`, `modelo`, `patente`, `precio`, `idusuario`, `fecha`) VALUES
 ('rolls royce', 'cullinan', 'ASD23', 355000000, 'a11', '2022-11-05 22:10:12'),
-('rolls royce', 'cullinan', 'ASD23', 355000000, 'a11', '2022-11-05 22:33:54');
+('rolls royce', 'cullinan', 'ASD23', 355000000, 'a11', '2022-11-05 22:33:54'),
+('rolls royce', 'cullinan', 'ASD23', 355000000, 'a11', '2022-11-06 16:15:53');
 
 --
 -- Índices para tablas volcadas
