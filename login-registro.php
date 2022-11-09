@@ -1,6 +1,6 @@
 <?php
 include_once('db.php');
-$Usuar = $_POST['usuario'];
+
 $nombre = $_POST['nombre'];
 $apell = $_POST['apellido'];
 $rut = $_POST['rut'];
@@ -12,8 +12,8 @@ $contrasena = $_POST['contrasena'];
 $conectar=conn();
 
 // query o consulta
-$query = "INSERT INTO registro_usuario(usuario, clave, rut, nombre, apellido, direccion, numerocontacto, correoelectronico)
-            VALUES('$Usuar', '$contrasena', '$rut', '$nombre', '$apell', '$direcc', '$telefono', '$email' )";
+$query = "INSERT INTO registro_usuario(clave, rut, nombre, apellido, direccion, numerocontacto, correoelectronico)
+            VALUES('$contrasena', '$rut', '$nombre', '$apell', '$direcc', '$telefono', '$email' )";
 
 // Verificar que el correo no se repita y ya este inscrito
 
