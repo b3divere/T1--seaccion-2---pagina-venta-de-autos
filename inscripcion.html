@@ -1,4 +1,18 @@
+<?php
+// inicia una sesion
+session_start();
 
+if(!isset($_SESSION['usuario'])){
+    echo '
+        <script>
+            alert("Por favor debes iniciar sesion");
+            window.location = "login.html";
+        </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
 <!DOCTYPE html>
  <html class="no-js"> 
 	<head>
@@ -185,5 +199,4 @@
 	<script src="js/main.js"></script>
 
 	</body>
-</html>
-
+ </html>
