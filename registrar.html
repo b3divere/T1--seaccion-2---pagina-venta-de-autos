@@ -10,15 +10,15 @@
 
 </head>  
 <body>
- <form class="formulario">
+ <form action="login-registro.php" method="POST" class="formulario">
     
     <h1>Registrate</h1>
     <p>Escribe tus datos y luego revisaremos estos.</p>
-     <div action="login-registro.php" method="POST" class="contenedor">
+     <div class="contenedor">
      
      <div class="input-contenedor">
          <i class="fas fa-user icon"></i>
-         <input type="text" placeholder="Nombre">
+         <input type="text" name="nombre" placeholder="Nombre">
          
          </div>
          <div class="input-contenedor">
@@ -29,7 +29,7 @@
    
          <div class="input-contenedor">
             <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="Apellido">
+            <input type="text" name="apellido" placeholder="Apellido">
             
         </div>
         <div class="input-contenedor">
@@ -40,34 +40,34 @@
 
         <div class="input-contenedor">
             <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="Rut">
+            <input type="text" name="rut" placeholder="Rut">
             
         </div>
 
         <div class="input-contenedor">
             <i class="fas fa-user icon"></i>
-            <input type="text" placeholder="Direccion">
+            <input type="text" name="direc" placeholder="Direccion">
             
         </div>
 
         <div class="input-contenedor">
             <i class="fas fa-phone icon"></i>
-            <input type="text" placeholder="Numero Celular">
+            <input type="text" name="telefono" placeholder="Numero Celular">
             
         </div>
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" placeholder="Correo Electronico">
+         <input type="text" name="email" placeholder="Correo Electronico">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña">
+         <input type="password" name="contrasena" placeholder="Contraseña">
          
          </div>
 
-         <input type="submit" value="Registrate" class="button">
+         <input type="submit" name="enviar" value="Registrate" class="button">
          <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
          <p>¿Ya tienes una cuenta?<a class="link" href="login.html">Iniciar Sesion</a></p>
      </div>

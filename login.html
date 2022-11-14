@@ -1,3 +1,10 @@
+<?php
+// inicia sesion
+    session_start();
+    if(isset($_SESSION['usuario'])){
+        header("location: bienvenida.php");
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -17,14 +24,21 @@
      
          
          <div class="input-contenedor">
+<<<<<<< Updated upstream
                 <i class="fas fa-user icon"></i>
                 <input type="text" placeholder="Direccion">
                 
             </div>
+=======
+         <i class="fas fa-envelope icon"></i>
+         <input type="text" name="email" placeholder="Correo Electronico">
+         
+         </div>
+>>>>>>> Stashed changes
          
          <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" placeholder="Contraseña">
+         <input type="password" name="contrasena" placeholder="Contraseña">
          
          </div>
          <input type="submit" value="Aceptar" class="button">

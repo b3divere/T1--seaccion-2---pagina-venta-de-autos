@@ -1,5 +1,6 @@
 <?php
 include_once('db.php');
+
 $Usuar= $_POST['usuario'];
 $nombre = $_POST['nombre'];
 $usuario = $_POST['Nombre de usuario']
