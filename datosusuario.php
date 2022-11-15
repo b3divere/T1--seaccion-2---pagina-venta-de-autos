@@ -1,3 +1,18 @@
+<?php
+// inicia una sesion
+session_start();
+
+if(!isset($_SESSION['usuario'])){
+    echo '
+        <script>
+            alert("Para ver los datos de usuario antes debes iniciar sesion");
+            window.location = "login.php";
+        </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
 <!DOCTYPE html>
 <html class="no-js">
    <head>
