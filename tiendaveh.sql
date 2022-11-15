@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3306
--- Tiempo de generación: 09-11-2022 a las 18:25:46
+-- Tiempo de generación: 15-11-2022 a las 18:44:46
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 7.4.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `tiendaveh`
+-- Base de datos: `tiendavehiculos`
 --
 
 DELIMITER $$
@@ -43,7 +43,7 @@ DELIMITER ;
 
 CREATE TABLE `comentarios` (
   `comentario` varchar(300) DEFAULT NULL,
-  `rut` varchar(12) DEFAULT NULL
+  `usuario` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -57,7 +57,7 @@ CREATE TABLE `inscripcion` (
   `modelo` varchar(30) DEFAULT NULL,
   `patente` varchar(10) DEFAULT NULL,
   `precio` int(11) DEFAULT NULL,
-  `rut` varchar(12) DEFAULT NULL
+  `usuario` varchar(30) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -67,9 +67,9 @@ CREATE TABLE `inscripcion` (
 --
 
 CREATE TABLE `usuarios` (
-  `usuario` varchar(30) DEFAULT NULL,
+  `usuario` varchar(30) NOT NULL,
   `clave` varchar(30) DEFAULT NULL,
-  `rut` varchar(12) NOT NULL,
+  `rut` varchar(12) DEFAULT NULL,
   `nombre` varchar(30) DEFAULT NULL,
   `apellido` varchar(30) DEFAULT NULL,
   `direccion` varchar(65) DEFAULT NULL,
@@ -85,19 +85,19 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  ADD KEY `rut` (`rut`);
+  ADD KEY `usuario` (`usuario`);
 
 --
 -- Indices de la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  ADD KEY `rut` (`rut`);
+  ADD KEY `usuario` (`usuario`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`rut`);
+  ADD PRIMARY KEY (`usuario`);
 
 --
 -- Restricciones para tablas volcadas
@@ -107,13 +107,13 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `comentarios`
 --
 ALTER TABLE `comentarios`
-  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuarios` (`rut`);
+  ADD CONSTRAINT `comentarios_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`usuario`);
 
 --
 -- Filtros para la tabla `inscripcion`
 --
 ALTER TABLE `inscripcion`
-  ADD CONSTRAINT `inscripcion_ibfk_1` FOREIGN KEY (`rut`) REFERENCES `usuarios` (`rut`);
+  ADD CONSTRAINT `inscripcion_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `usuarios` (`usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
