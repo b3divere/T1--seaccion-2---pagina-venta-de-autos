@@ -14,13 +14,8 @@ $contrasena = md5($_POST['contrasena']);
 $conectar=conn();
 
 // query o consulta
-<<<<<<< HEAD
-$query = "INSERT INTO registro_usuario(clave, rut, nombre, apellido, direccion, numerocontacto, correoelectronico)
-            VALUES('$contrasena', '$rut', '$nombre', '$usuario', $apell', '$direcc', '$telefono', '$email' )";
-=======
 $query = "INSERT INTO registro_usuario(usuario, clave, rut, nombre, apellido, direccion, numerocontacto, correoelectronico)
             VALUES('$Usuar', '$contrasena', '$rut', '$nombre', '$apell', '$direcc', '$telefono', '$email' )";
->>>>>>> main
 
 // Verificar que el correo no se repita y ya este inscrito
 
@@ -55,7 +50,7 @@ $ejecutar = mysqli_query($conectar, $query);
 if ($ejecutar) {
     ?>
     <script>
-        window.location.replace("login.html");
+        window.location.replace("login.php");
         window.alert("El usuario se ha registrado correctamente");
     </script>
     <?php
