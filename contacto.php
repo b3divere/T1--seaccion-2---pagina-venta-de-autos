@@ -90,23 +90,26 @@
 					</div>
 					
 					<div class="col-md-6 col-md-push-1">
-						<form action="enviar.php"  method= "post">
+						<form method= "post">
 							<div class="form-group">
-								<input type="text" name="name" id="name" class="form-control" placeholder="Nombres">
+								<input type="text" name="name" id="name" class="form-control" placeholder="Nombres" required="">
 							</div>
 							<div class="form-group">
-								<input type="text" name="ape" id="ape" class="form-control" placeholder="Apellidos">
+								<input type="text" name="ape" id="ape" class="form-control" placeholder="Apellidos" required="">
 							</div>
 							<div class="form-group">
-								<input type="text" name="mail" id="mail" class="form-control" placeholder="Correo Electronico">
+								<input type="text" name="mail" id="mail" class="form-control" placeholder="Correo Electronico" required="">
 							</div>
 							<div class="form-group">
-								<textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="MENSAJE ... "></textarea>
+								<textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="MENSAJE ... "required=""></textarea> 
 							</div>
 							<div class="form-group">
 								<input type="submit" value="Enviar Mensaje" class="btn btn-primary btn-md">
 							</div>
 						</form>
+						<?php
+						include("correo.php")
+						?>
 					</div>
 				</div>
 			</div>
