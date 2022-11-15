@@ -5,7 +5,6 @@ session_start();
 if(!isset($_SESSION['usuario'])){
     echo '
         <script>
-		    
             window.location = "login.php";
         </script>
     ';
@@ -70,9 +69,9 @@ if(!isset($_SESSION['usuario'])){
 					<ul>
 						<li><a href="index.html"><span>Inicio</span></a></li>
 						<li><a href="vehiculos.html"><span>Vehículos</span></a></li>
-						<li class="fh5co-active"><a href="inscripcion.html"><span>Inscripción</span></a></li>
+						<li class="fh5co-active"><a href="inscripcion.php"><span>Inscripción</span></a></li>
 						<li><a href="contacto.html"><span>Contacto</span></a></li>
-						<li><a href="login.html"><span>Accede a tu cuenta aqui</span></a></li>
+						<li><a href="login.php"><span>Accede a tu cuenta aqui</span></a></li>
 						<li class="item-r"><a href="cerrar_sesion.php">Cerrar sesion</a></li>
 						<a href="datosusuario.html"><img src="images/usuario.png" width="45" height="45" align="left"></a>
 					</ul>
@@ -97,7 +96,6 @@ if(!isset($_SESSION['usuario'])){
 
 		<div class="fh5co-section">
 			<div class="container">
-
 				<div class="row">
 					<div class="col-md-12">
 						<div class="row">

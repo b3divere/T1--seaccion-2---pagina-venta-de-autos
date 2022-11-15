@@ -2,7 +2,7 @@
 // inicia sesion
     session_start();
     if(isset($_SESSION['usuario'])){
-        header("location: bienvenida.php");
+        header("location: datosusuario.html");
     }
 ?>
 <!DOCTYPE html>
@@ -15,24 +15,24 @@
     <link rel="shortcut icon" type= "image/x-icon" href="images/favicon.ico">	
 
 </head>  
-<body>
-    <form action="login_usuario.php" method="POST" class="formulario">
-    
-    <h1>Accede a tu Cuenta</h1>
-     <div class="contenedor">
-         <div class="input-contenedor">
-                <i class="fas fa-user icon"></i>
-                <input type="text" placeholder="Direccion">    
-        </div>
-        <div class="input-contenedor">
-        <i class="fas fa-key icon"></i>
-            <input type="password" name="contrasena" placeholder="Contraseña">
-     
-        </div>
-            <input type="submit" value="Aceptar" class="button">
-            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-            <p>¿No tienes una cuenta? <a class="link" href="registrar.html">Registrate </a></p>
-     </div>
-    </form>
-</body>
+    <body>
+        <form action="login_usuario.php" method="POST" class="formulario">
+        
+            <h1>Accede a tu Cuenta</h1>
+            <div class="contenedor">
+                <div class="input-contenedor">
+                    <i class="fas fa-user icon"></i>
+                    <input type="text" name="usuario" placeholder="Nombre de usuario">    
+                </div>
+                <div class="input-contenedor">
+                    <i class="fas fa-key icon"></i>
+                    <input type="password" name="contrasena" placeholder="Contraseña">
+            
+                </div>
+                <input type="submit" value="Aceptar" class="button">
+                <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+                <p>¿No tienes una cuenta? <a class="link" href="registrar.html">Registrate </a></p>
+            </div>
+        </form>
+    </body>
 </html>
