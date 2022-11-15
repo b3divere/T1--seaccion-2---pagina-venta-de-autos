@@ -3,7 +3,7 @@ include_once('db.php');
 
 $Usuar= $_POST['usuario'];
 $nombre = $_POST['nombre'];
-$usuario = $_POST['Nombre de usuario']
+$usuario = $_POST['Nombre de usuario'];
 $apell = $_POST['apellido'];
 $rut = $_POST['rut'];
 $direcc = $_POST['direc'];
