@@ -1,16 +1,3 @@
-<?php
-include("login_usuario.php");
- session_start();
- if (!isset($_SESSION['usuario'])) {
-    header("location index.html")
- }
-
-$user = $_SESSION['usuario'];
-$sql = "SELECT '$usua', Nombre FROM registro_usuario WHERE '$usua' = '$user'";
-$resultado = $conexion->query($sql);
-$row = $resultado->fetch_assoc();
-?>
-
 <!DOCTYPE html>
 <html class="no-js">
    <head>
