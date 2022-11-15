@@ -1,3 +1,15 @@
+<?php
+include("login_usuario.php");
+ session_start();
+ if (!isset($_SESSION['usuario'])) {
+    header("location index.html")
+ }
+
+$user = $_SESSION['usuario'];
+$sql = "SELECT '$usua', Nombre FROM registro_usuario WHERE '$usua' = '$user'";
+$resultado = $conexion->query($sql);
+$row = $resultado->fetch_assoc();
+?>
 
 <!DOCTYPE html>
 <html class="no-js">
@@ -67,6 +79,8 @@
                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
                        <div class="fh5co-intro fh5co-table-cell">
                            <h1 class="text-center">Tus Datos</h1>
+                           <!-- Mostrar datos usuario logeado-->
+                           <?php echo utf8_decode($row['Nombre'])?>
                        
                        </div>
                    </div>
