@@ -2,7 +2,7 @@
 // inicia sesion
     session_start();
     if(isset($_SESSION['usuario'])){
-        header("location: datosusuario.html");
+        header("location: datosusuario.php");
     }
 ?>
 <!DOCTYPE html>
