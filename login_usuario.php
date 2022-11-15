@@ -23,7 +23,7 @@ if(mysqli_num_rows($validar_login) > 0){
     ?>
     <script>
         alert("Usuario ingresado no existe, por favor verifique los datos introducidos");
-        window.location = "login.html";
+        window.location = "login.php";
     </script>
     <?php
     exit();

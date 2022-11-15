@@ -20,30 +20,18 @@
     
     <h1>Accede a tu Cuenta</h1>
      <div class="contenedor">
-     
-     
-         
          <div class="input-contenedor">
-<<<<<<< Updated upstream
                 <i class="fas fa-user icon"></i>
-                <input type="text" placeholder="Direccion">
-                
-            </div>
-=======
-         <i class="fas fa-envelope icon"></i>
-         <input type="text" name="email" placeholder="Correo Electronico">
-         
-         </div>
->>>>>>> Stashed changes
-         
-         <div class="input-contenedor">
+                <input type="text" placeholder="Direccion">    
+        </div>
+        <div class="input-contenedor">
         <i class="fas fa-key icon"></i>
-         <input type="password" name="contrasena" placeholder="Contraseña">
-         
-         </div>
-         <input type="submit" value="Aceptar" class="button">
-         <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-         <p>¿No tienes una cuenta? <a class="link" href="registrar.html">Registrate </a></p>
+            <input type="password" name="contrasena" placeholder="Contraseña">
+     
+        </div>
+            <input type="submit" value="Aceptar" class="button">
+            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+            <p>¿No tienes una cuenta? <a class="link" href="registrar.html">Registrate </a></p>
      </div>
     </form>
 </body>
