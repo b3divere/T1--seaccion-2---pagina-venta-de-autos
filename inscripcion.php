@@ -68,7 +68,7 @@ if(!isset($_SESSION['usuario'])){
 				<nav class="fh5co-main-nav">
 					<ul>
 						<li><a href="index.html"><span>Inicio</span></a></li>
-						<li><a href="vehiculos.html"><span>Vehículos</span></a></li>
+						<li><a href="vehiculos.php"><span>Vehículos</span></a></li>
 						<li class="fh5co-active"><a href="inscripcion.php"><span>Inscripción</span></a></li>
 						<li><a href="contacto.html"><span>Contacto</span></a></li>
 						<li><a href="login.php"><span>Accede a tu cuenta aqui</span></a></li>

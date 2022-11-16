@@ -65,10 +65,10 @@ if(!isset($_SESSION['usuario'])){
                <nav class="fh5co-main-nav">
                    <ul>
                        <li><a href="index.html"><span>Inicio</span></a></li>
-                       <li><a href="vehiculos.html"><span>Vehículos</span></a></li>
+                       <li><a href="vehiculos.php"><span>Vehículos</span></a></li>
                        <li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
                        <li><a href="contacto.html"><span>Contacto</span></a></li>
-                       <a href="datosusuario.html"><img src="images/usuario.png" width="45" height="45" align="left"></a>
+                       <a href="datosusuario.php"><img src="images/usuario.png" width="45" height="45" align="left"></a>
                     </ul>
                </nav>
            </div>
