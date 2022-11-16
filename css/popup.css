@@ -10,8 +10,7 @@
     justify-content: center;
     visibility: hidden;
 }
-
-.overlay.active {
+.overlay.active{
     visibility: visible;
 }
 
@@ -42,3 +41,8 @@
     font-weight: 500;
     margin-bottom: 10px;
 }
+
+.popup.active {opacity: 1;}
+
+}
+
