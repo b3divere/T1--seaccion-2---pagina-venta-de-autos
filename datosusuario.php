@@ -68,6 +68,7 @@ if(!isset($_SESSION['usuario'])){
                        <li><a href="vehiculos.html"><span>Vehículos</span></a></li>
                        <li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
                        <li><a href="contacto.html"><span>Contacto</span></a></li>
+                       <li class="item-r"><a href="cerrar_sesion.php">Cerrar sesion</a></li>
                        <a href="datosusuario.html"><img src="images/usuario.png" width="45" height="45" align="left"></a>
                     </ul>
                </nav>
