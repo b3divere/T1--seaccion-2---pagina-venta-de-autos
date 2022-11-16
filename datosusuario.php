@@ -1,4 +1,18 @@
+<?php
+// inicia una sesion
+session_start();
 
+if(!isset($_SESSION['usuario'])){
+    echo '
+        <script>
+            alert("Para ver los datos de usuario antes debes iniciar sesion");
+            window.location = "login.php";
+        </script>
+    ';
+    session_destroy();
+    die();
+}
+?>
 <!DOCTYPE html>
 <html class="no-js">
    <head>
@@ -52,7 +66,7 @@
                    <ul>
                        <li><a href="index.html"><span>Inicio</span></a></li>
                        <li><a href="vehiculos.html"><span>Vehículos</span></a></li>
-                       <li><a href="inscripcion.html"><span>Vende tu vehiculo aqui</span></a></li>
+                       <li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
                        <li><a href="contacto.html"><span>Contacto</span></a></li>
                        <a href="datosusuario.html"><img src="images/usuario.png" width="45" height="45" align="left"></a>
                     </ul>
@@ -67,6 +81,8 @@
                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
                        <div class="fh5co-intro fh5co-table-cell">
                            <h1 class="text-center">Tus Datos</h1>
+                           <!-- Mostrar datos usuario logeado-->
+                           <?php echo utf8_decode($row['Nombre'])?>
                        
                        </div>
                    </div>

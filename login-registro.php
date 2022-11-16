@@ -1,10 +1,9 @@
 <?php
 include_once('db.php');
 
-$Usuar= $_POST['usuario'];
 $nombre = $_POST['nombre'];
-$usuario = $_POST['Nombre de usuario']
-$apell = $_POST['apellido'];
+$usuario = $_POST['user'];
+$ape = $_POST['apellido'];
 $rut = $_POST['rut'];
 $direcc = $_POST['direc'];
 $telefono = $_POST['telefono'];
@@ -14,17 +13,11 @@ $contrasena = md5($_POST['contrasena']);
 $conectar=conn();
 
 // query o consulta
-<<<<<<< HEAD
-$query = "INSERT INTO registro_usuario(clave, rut, nombre, apellido, direccion, numerocontacto, correoelectronico)
-            VALUES('$contrasena', '$rut', '$nombre', '$usuario', $apell', '$direcc', '$telefono', '$email' )";
-=======
-$query = "INSERT INTO registro_usuario(usuario, clave, rut, nombre, apellido, direccion, numerocontacto, correoelectronico)
-            VALUES('$Usuar', '$contrasena', '$rut', '$nombre', '$apell', '$direcc', '$telefono', '$email' )";
->>>>>>> main
+$query = "CALL NewUser('$nombre','$usuario','$ape','$rut','$direcc','$telefono','$email','$contrasena')";
 
 // Verificar que el correo no se repita y ya este inscrito
 
-$verificar_correo = mysqli_query($conectar, "SELECT * FROM registro_usuario WHERE correoelectronico='$email' ");
+$verificar_correo = mysqli_query($conectar, "SELECT * FROM usuarios WHERE correo='$email'");
 // si existe una fila con el mismo correo
 if(mysqli_num_rows($verificar_correo) > 0){
     ?>
@@ -37,7 +30,7 @@ if(mysqli_num_rows($verificar_correo) > 0){
 }
 
 // verifica que el usuario no se repita
-$verificar_usuario = mysqli_query($conectar, "SELECT * FROM registro_usuario WHERE usuario='$Usuar' ");
+$verificar_usuario = mysqli_query($conectar, "SELECT * FROM usuarios WHERE usuario='$usuario'");
 // si existe una fila con el mismo correo
 if(mysqli_num_rows($verificar_usuario) > 0){
     ?>
@@ -55,7 +48,7 @@ $ejecutar = mysqli_query($conectar, $query);
 if ($ejecutar) {
     ?>
     <script>
-        window.location.replace("login.html");
+        window.location.replace("login.php");
         window.alert("El usuario se ha registrado correctamente");
     </script>
     <?php

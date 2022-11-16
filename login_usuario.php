@@ -10,8 +10,7 @@ $contrasena = md5($_POST['contrasena']);
 $conectar=conn();
 
 // query para validar si el correo usado esta en la base de datos
-$validar_login = mysqli_query($conectar, "SELECT * FROM registro_usuario WHERE usuario='$usua' 
-and clave='$contrasena'");
+$validar_login = mysqli_query($conectar, "SELECT * FROM usuarios WHERE usuario='$usua' and pwd='$contrasena'");
 
 // si encuentra algun usuario o correo que existe
 if(mysqli_num_rows($validar_login) > 0){
@@ -23,10 +22,9 @@ if(mysqli_num_rows($validar_login) > 0){
     ?>
     <script>
         alert("Usuario ingresado no existe, por favor verifique los datos introducidos");
-        window.location = "login.html";
+        window.location = "login.php";
     </script>
     <?php
     exit();
 }
-
 ?>
