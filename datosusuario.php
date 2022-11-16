@@ -9,8 +9,11 @@ if(!isset($_SESSION['usuario'])){
             window.location = "login.php";
         </script>
     ';
+    
     session_destroy();
     die();
+    $row=mysqli_fetch_array($query);
+
 }
 ?>
 <!DOCTYPE html>
@@ -39,7 +42,8 @@ if(!isset($_SESSION['usuario'])){
    <link rel="shortcut icon" type= "image/x-icon" href="images/favicon.ico">
 
    <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-   
+   <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
    <!-- Animate.css -->
    <link rel="stylesheet" href="css/animate.css">
    
@@ -68,6 +72,7 @@ if(!isset($_SESSION['usuario'])){
                        <li><a href="vehiculos.php"><span>Vehículos</span></a></li>
                        <li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
                        <li><a href="contacto.html"><span>Contacto</span></a></li>
+                       <li class="item-r"><a href="cerrar_sesion.php">Cerrar sesion</a></li>
                        <a href="datosusuario.php"><img src="images/usuario.png" width="45" height="45" align="left"></a>
                     </ul>
                </nav>
@@ -80,10 +85,7 @@ if(!isset($_SESSION['usuario'])){
                <div class="row">
                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
                        <div class="fh5co-intro fh5co-table-cell">
-                           <h1 class="text-center">Tus Datos</h1>
-                           <!-- Mostrar datos usuario logeado-->
-                           <?php echo utf8_decode($row['Nombre'])?>
-                       
+                           <h1 class="text-center">Tus Datos</h1>                
                        </div>
                    </div>
                </div>
@@ -93,7 +95,48 @@ if(!isset($_SESSION['usuario'])){
            <div class="container">
                <div class="row">
                    <div class="col-md-5">
-                //php de los datos del usuario
+                   <table class="table" >
+                                <thead class="table-success table-striped" >
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th>Usuario</th>
+                                        <th>Apellido</th>
+                                        <th>Rut</th>
+                                        <th>Dirrecion</th>
+                                        <th>Fono</th>
+                                        <th>Correo</th>
+                                        <th></th>
+
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+        
+                                            <tr>
+                                            <?php 
+                                            include("db.php");
+                                            $con=conn();
+                                            $sql="SELECT * FROM usuarios ";
+                                            $query=mysqli_query($con,$sql);
+                                            $resul= ($con->query($sql));
+                                            while($pin = $resul -> fetch_assoc()){
+
+                                            ?> 
+                                                <th><?php  echo $pin['nombre']?></th>
+                                                <th><?php  echo $pin['usuario']?></th>
+                                                <th><?php  echo $pin['apellido']?></th>
+                                                <th><?php  echo $pin['rut']?></th> 
+                                                <th><?php  echo $pin['direccion']?></th> 
+                                                <th><?php  echo $pin['Ncelular']?></th> 
+                                                <th><?php  echo $pin['correo']?></th>    
+                                                <th><a actione="actualizar.php?rut=<?php echo $pin['rut'] ?>" class="btn btn-info">Editar</a></th>                                       
+                                    
+                                            <?php 
+                                            }   
+                                            ?>
+                                           </tr>
+                                </tbody>
+                            </table>
                    </div>
                </div>
            </div>
