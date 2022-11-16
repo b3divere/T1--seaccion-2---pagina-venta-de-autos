@@ -2,13 +2,8 @@
 include_once('db.php');
 
 $nombre = $_POST['nombre'];
-<<<<<<< HEAD
 $usuario = $_POST['Nombre de usuario'];
 $apell = $_POST['apellido'];
-=======
-$usuario = $_POST['user'];
-$ape = $_POST['apellido'];
->>>>>>> main
 $rut = $_POST['rut'];
 $direcc = $_POST['direc'];
 $telefono = $_POST['telefono'];
