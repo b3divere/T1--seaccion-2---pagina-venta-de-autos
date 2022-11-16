@@ -55,7 +55,7 @@
 						<li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
 						<li class="fh5co-active"><a href="contacto.html"><span>Contacto</span></a></li>
 						<li><a href="login.php"><span>Accede a tu cuenta aqui</span></a></li>
-						<a href="datosusuario.html"><img src="images/usuario.png" width="45" height="45" align="left"></a>
+						<a href="datosusuario.php"><img src="images/usuario.png" width="45" height="45" align="left"></a>
 					</ul>
 				</nav>
 			</div>
