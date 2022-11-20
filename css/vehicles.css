@@ -28,7 +28,7 @@ li{
     font-weight: bold;
 }
 
-.autos article{
+.autos button{
     text-align: center;
     font-size: 20px;
     display: flex;
@@ -42,7 +42,7 @@ li{
     color: aliceblue;
 }
 
-article:hover{
+button:hover{
     background-color: transparent;
     border: 2px solid rgb(0, 96, 185);
     color: rgb(0, 96, 185);

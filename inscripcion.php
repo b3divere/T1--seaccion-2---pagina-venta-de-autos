@@ -128,7 +128,7 @@ if(!isset($_SESSION['usuario'])){
 					 <p><label>Modelo: <input type="text" name="modelo"></label></p>
    					 <p><label>Patente: <input type="text" name="patente"></label></p>
    					 <p><label>Precio: <input type="text" name="precio"></label></p>
-					 <p><label>Rut usuario: <input type="text" name="rut"></label></p>
+					 <p><label>Dueño: <input type="text" name="dueño"></label></p>
 
  			 </fieldset>
 

@@ -7,7 +7,7 @@ $usua = $_POST['usuario'];
 $contrasena = md5($_POST['contrasena']);
 
 // conectar con base de datos
-$conectar=conn();
+$conectar = conn();
 
 // query para validar si el correo usado esta en la base de datos
 $validar_login = mysqli_query($conectar, "SELECT * FROM usuarios WHERE usuario='$usua' and pwd='$contrasena'");
