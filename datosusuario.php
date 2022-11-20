@@ -83,7 +83,7 @@ if(!isset($_SESSION['usuario'])){
                        <div class="fh5co-intro fh5co-table-cell">
                            <h1 class="text-center">Tus Datos</h1>
                            <!-- Mostrar datos usuario logeado-->
-                           <?php echo utf8_decode($row['Nombre'])?>
+                           <?php echo utf8_decode($row['usuario'])?>
                        
                        </div>
                    </div>
