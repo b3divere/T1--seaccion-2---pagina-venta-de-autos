@@ -2,22 +2,23 @@
 include_once('db.php');
 
 $nombre = $_POST['nombre'];
-$usuario = $_POST['user'];
+$usuario = $_POST['usuario'];
 $ape = $_POST['apellido'];
 $rut = $_POST['rut'];
-$direcc = $_POST['direc'];
+$direcc = $_POST['direccion'];
 $telefono = $_POST['telefono'];
-$email = $_POST['email'];
-$contrasena = md5($_POST['contrasena']);
+$email = $_POST['correo'];
+$contrasena = md5($_POST['clave']);
 
 $conectar=conn();
 
 // query o consulta
-$query = "CALL NewUser('$nombre','$usuario','$ape','$rut','$direcc','$telefono','$email','$contrasena')";
+$query = "INSERT INTO  Usuarios(nombre, apellido, usuario, Ncontacto, rut, correo, direccion, clave)
+        VALUES ('$nombre','$ape','$usuario','$rut','$direcc','$telefono','$email','$contrasena')";
 
 // Verificar que el correo no se repita y ya este inscrito
 
-$verificar_correo = mysqli_query($conectar, "SELECT * FROM usuarios WHERE correo='$email'");
+$verificar_correo = mysqli_query($conectar, "SELECT * FROM Usuarios WHERE correo='$email'");
 // si existe una fila con el mismo correo
 if(mysqli_num_rows($verificar_correo) > 0){
     ?>
@@ -30,7 +31,7 @@ if(mysqli_num_rows($verificar_correo) > 0){
 }
 
 // verifica que el usuario no se repita
-$verificar_usuario = mysqli_query($conectar, "SELECT * FROM usuarios WHERE usuario='$usuario'");
+$verificar_usuario = mysqli_query($conectar, "SELECT * FROM Usuarios WHERE usuario='$usuario'");
 // si existe una fila con el mismo correo
 if(mysqli_num_rows($verificar_usuario) > 0){
     ?>

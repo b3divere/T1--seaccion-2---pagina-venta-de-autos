@@ -26,7 +26,7 @@
                 </div>
                 <div class="input-contenedor">
                     <i class="fas fa-key icon"></i>
-                    <input type="password" name="contrasena" placeholder="Contraseña">
+                    <input type="password" name="clave" placeholder="Contraseña">
             
                 </div>
                 <input type="submit" value="Aceptar" class="button">

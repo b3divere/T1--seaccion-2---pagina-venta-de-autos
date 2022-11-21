@@ -1,7 +1,27 @@
 <?php
-// inicia una sesion
 session_start();
+include("db.php");
 
+$usuar =$_SESSION['usuario'];
+$sql = "SELECT `nombre`, `apellido`, `usuario`, `Ncontacto`,
+ `rut`, `correo`, `direccion` FROM Usuarios  WHERE usuario=$usuar";
+ 
+$conectar=conn();
+$resultado = $conectar ->query($sql);
+
+ while($data = $resultado->fetch_assoc()){
+
+        $nombre  = $data['nombre'];
+        $ape  = $data['apellido'];
+        $user  = $data['usuario'];
+        $fono  = $data['Ncontacto'];
+        $rut  = $data['rut'];
+        $correo  = $data['correo'];
+        $direc  = $data['direccion'];
+
+ }
+
+// inicia una sesion
 if(!isset($_SESSION['usuario'])){
     echo '
         <script>
@@ -12,14 +32,15 @@ if(!isset($_SESSION['usuario'])){
     session_destroy();
     die();
 }
-$usuari =$_SESSION['usuario'];
+
 ?>
+
 <!DOCTYPE html>
 <html class="no-js">
    <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Contacto</title>
+   <title>Datos Usuario</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
    <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -70,7 +91,7 @@ $usuari =$_SESSION['usuario'];
                        <li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
                        <li><a href="contacto.html"><span>Contacto</span></a></li>
                        <li class="item-r"><a href="cerrar_sesion.php">Cerrar sesion</a></li>
-                       <a href="datosusuario.html"><img src="images/usuario.png" width="45" height="45" align="left"></a>
+                       <a href="datosusuario.php"><img src="images/usuario.png" width="45" height="45" align="left"></a>
                     </ul>
                </nav>
            </div>
@@ -93,35 +114,23 @@ $usuari =$_SESSION['usuario'];
                                     <th scope="col">Direccion</th>
                                     <th scope="col">Telefono</th>
                                     <th scope="col">Correo</th>
-                                    <th scope="col">contrasena</th>
                                     <th scope="col">Opciones</th>
                                 </tr>
                             </thead>
                         <tbody>
-                            <?php 
-                            // Codigo que lista todos los datos que estan en la bd
-                            include("db.php");
-                            $sql = "SELECT * FROM usuarios WHERE usuario=$usuari";
-                            $conectar = conn();
-                            $query = mysqli_query($conectar, $sql);
-                            while($fila = mysqli_fetch_array($query)){
-                            ?>
                                 <tr>
-                                    <th scope="row"><?php echo $fila['nombre']?></th>
-                                    <th scope="row"><?php echo $fila['usuario']?></th>
-                                    <th scope="row"><?php echo $fila['apellido']?></th>
-                                    <th scope="row"><?php echo $fila['rut']?></th>
-                                    <th scope="row"><?php echo $fila['direccion']?></th>
-                                    <th scope="row"><?php echo $fila['telefono']?></th>
-                                    <th scope="row"><?php echo $fila['correo']?></th>
-                                    <th scope="row"><?php echo $fila['conrasena']?></th>
+                                    <th><?php echo $nombre;?></th>
+                                    <th><?php echo $ape;?></th>
+                                    <th><?php echo $user;?></th>
+                                    <th><?php echo $fono;?></th>
+                                    <th><?php echo $rut;?></th>
+                                    <th><?php echo $correo;?></th>
+                                    <th><?php echo $direc;?></th>
+
                                     <th scope="row">
-                                        <a href="editarUsuar.php?Id=<?php echo $fila['usuario']?>" class="btn btn-warning">Editar</a>
+                                        <a href="actualizar_datos.php?usuario=<?php echo $fila['usuario']?>" class="btn btn-warning">Editar</a>
                                     </th>
                                 </tr>
-                            <?php
-                            }
-                            ?>
                         </tbody>
                     </table>
                         </div>
