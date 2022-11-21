@@ -12,6 +12,7 @@ if(!isset($_SESSION['usuario'])){
     session_destroy();
     die();
 }
+$usuari =$_SESSION['usuario'];
 ?>
 <!DOCTYPE html>
 <html class="no-js">
@@ -81,25 +82,53 @@ if(!isset($_SESSION['usuario'])){
                <div class="row">
                    <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
                        <div class="fh5co-intro fh5co-table-cell">
-                           <h1 class="text-center">Tus Datos</h1>
-                           <!-- Mostrar datos usuario logeado-->
-                           <?php echo utf8_decode($row['usuario'])?>
-                       
-                       </div>
+                       <h1>Datos del Usuario</h1>
+                       <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Rut</th>
+                                    <th scope="col">Direccion</th>
+                                    <th scope="col">Telefono</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">contrasena</th>
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <?php 
+                            // Codigo que lista todos los datos que estan en la bd
+                            include("db.php");
+                            $sql = "SELECT * FROM usuarios WHERE usuario=$usuari";
+                            $conectar = conn();
+                            $query = mysqli_query($conectar, $sql);
+                            while($fila = mysqli_fetch_array($query)){
+                            ?>
+                                <tr>
+                                    <th scope="row"><?php echo $fila['nombre']?></th>
+                                    <th scope="row"><?php echo $fila['usuario']?></th>
+                                    <th scope="row"><?php echo $fila['apellido']?></th>
+                                    <th scope="row"><?php echo $fila['rut']?></th>
+                                    <th scope="row"><?php echo $fila['direccion']?></th>
+                                    <th scope="row"><?php echo $fila['telefono']?></th>
+                                    <th scope="row"><?php echo $fila['correo']?></th>
+                                    <th scope="row"><?php echo $fila['conrasena']?></th>
+                                    <th scope="row">
+                                        <a href="editarUsuar.php?Id=<?php echo $fila['usuario']?>" class="btn btn-warning">Editar</a>
+                                    </th>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                        </div>
                    </div>
                </div>
            </div>
        </div>
-       <div class="fh5co-section">
-           <div class="container">
-               <div class="row">
-                   <div class="col-md-5">
-                //php de los datos del usuario
-                   </div>
-               </div>
-           </div>
-       </div>
-
 
    </div> 
 
