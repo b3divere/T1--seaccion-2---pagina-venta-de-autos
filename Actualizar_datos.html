@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Actualizar datos de cuenta</title> 
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
+    <script src="https://kit.fontawesome.com/f810ecf29a.js" crossorigin="anonymous"></script> >
+	<link rel="stylesheet" href="estilos.css">
+    <link rel="shortcut icon" type= "image/x-icon" href="images/favicon.ico">	
+
+</head>  
+<body>
+ <form action="actualizar_datos.php" method="POST" class="formulario">
+    
+    <h1>Actualiza tus datos</h1>
+
+    <div class="contenedor">
+     
+        <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+            <input type="text" name="nombre" placeholder="Nombre">
+         
+        </div>
+        <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+            <input type="text" name="apellido" placeholder="Apellido">
+            
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-phone icon"></i>
+            <input type="text" name="Ncontacto" placeholder="Fono">
+            
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-envelope icon"></i>
+            <input type="text" name="correo" placeholder="Correo Electronico">
+            
+        </div>
+
+        <div class="input-contenedor">
+            <i class="fas fa-user icon"></i>
+         <input type="text" name="direccion" placeholder="Direccion">
+         
+        </div>
+
+        <input type="submit" name="enviar" value="Actualizar" class="button">
+    </div>
+    </form>
+</body>
+</html>

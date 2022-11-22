@@ -3,17 +3,15 @@
 include("db.php");
 $con=conn();
 
-$nombre=$_POST['nombre'];
-$usuario=$_POST['user'];
-$apellido=$_POST['apellido'];
-$rut=$_POST['rut'];
-$direccion=$_POST['direccion'];
-$Ncelular=$_POST['Ncelular'];
-$correo=$_POST['correo'];
+$nombre = $_POST['nombre'];
+$ape = $_POST['apellido'];
+$telefono = $_POST['Ncontacto'];
 
-$sql="UPDATE usuarios SET  nombre='$nombre'
-,usuario='$usuario',apellido='$apellido',direccion='$direccion',Ncelular='$Ncelular'
-,correo='$correo' WHERE rut='$rut'";
+$email = $_POST['correo'];
+$direcc = $_POST['direccion'];
+
+$sql="UPDATE `Usuarios` SET `nombre`='$nombre',`apellido`='$ape',`Ncontacto`='$telefono',
+`correo`='$email',`direccion`='$direcc' WHERE 1";
 $query=mysqli_query($con,$sql);
 
     if($query){
