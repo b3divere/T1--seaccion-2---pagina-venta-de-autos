@@ -1,7 +1,28 @@
 <?php
-// inicia una sesion
 session_start();
+include("db.php");
 
+$usuar =$_SESSION['usuario'];
+$sql = "SELECT `nombre`, `apellido`, `usuario`, `Ncontacto`,
+ `rut`, `correo`, `direccion` FROM Usuarios  WHERE usuario= '$usuar'";
+ 
+$conectar=conn();
+
+$resultado = $conectar ->query($sql);
+
+ while($data = $resultado->fetch_assoc()){
+
+        $nombre  = $data['nombre'];
+        $ape  = $data['apellido'];
+        $user  = $data['usuario'];
+        $fono  = $data['Ncontacto'];
+        $rut  = $data['rut'];
+        $correo  = $data['correo'];
+        $direc  = $data['direccion'];
+
+ }
+
+// inicia una sesion
 if(!isset($_SESSION['usuario'])){
     echo '
         <script>
@@ -12,13 +33,15 @@ if(!isset($_SESSION['usuario'])){
     session_destroy();
     die();
 }
+
 ?>
+
 <!DOCTYPE html>
 <html class="no-js">
    <head>
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>Contacto</title>
+   <title>Datos Usuario</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
    <meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -68,39 +91,68 @@ if(!isset($_SESSION['usuario'])){
                        <li><a href="vehiculos.html"><span>Vehículos</span></a></li>
                        <li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
                        <li><a href="contacto.html"><span>Contacto</span></a></li>
-                       <a href="datosusuario.html"><img src="images/usuario.png" width="45" height="45" align="left"></a>
+                       <li class="item-r"><a href="cerrar_sesion.php">Cerrar sesion</a></li>
+                       <a href="datosusuario.php"><img src="images/usuario.png" width="45" height="45" align="left"></a>
                     </ul>
                </nav>
            </div>
        </header>
 
        <div class="fh5co-hero" style="background-image: url(images/imgazul.jpg);" data-stellar-background-ratio="0.5">
-           <div class="overlay"></div>
-           <div class="container">
-               <div class="row">
-                   <div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
-                       <div class="fh5co-intro fh5co-table-cell">
-                           <h1 class="text-center">Tus Datos</h1>
-                           <!-- Mostrar datos usuario logeado-->
-                           <?php echo utf8_decode($row['usuario'])?>
-                       
-                       </div>
-                   </div>
-               </div>
-           </div>
-       </div>
-       <div class="fh5co-section">
-           <div class="container">
-               <div class="row">
-                   <div class="col-md-5">
-                //php de los datos del usuario
-                   </div>
-               </div>
-           </div>
-       </div>
+       <div class="overlay"></div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2 col-sm-12 col-sm-offset-0 col-xs-12 col-xs-offset-0 text-center fh5co-table">
+						<div class="fh5co-intro fh5co-table-cell">
+                        <h1>Tus Datos</h1>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fh5co-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-5">
+                    <table class="table"  >
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Telefono</th>
+                                    <th scope="col">Rut</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Direccion</th>
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+                         <tbody>
+                                <tr>
+                                    <th><?php echo $nombre;?></th>
+                                    <th><?php echo $ape;?></th>
+                                    <th><?php echo $user;?></th>
+                                    <th><?php echo $fono;?></th>
+                                    <th><?php echo $rut;?></th>
+                                    <th><?php echo $correo;?></th>
+                                    <th><?php echo $direc;?></th>
+
+                                    <th>
+                                        <a href="Actualizar_datos.html" 
+                                        class="btn btn-warning">Actualizar</a>
+                                    </th>
+                                </tr>
+                            </tbody>
+                         </table>
+						<h2>Vehiculos Publicados</h2>
+					</div>
+
+				</div>
+			</div>
+		</div>
 
 
-   </div> 
+	</div> 
 
 
    <footer id="fh5co-footer">
@@ -151,4 +203,35 @@ if(!isset($_SESSION['usuario'])){
 
    </body>
 </html>
+<h1>Datos del Usuario</h1>
+                       <table class="table">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellido</th>
+                                    <th scope="col">Usuario</th>
+                                    <th scope="col">Telefono</th>
+                                    <th scope="col">Rut</th>
+                                    <th scope="col">Correo</th>
+                                    <th scope="col">Direccion</th>
+                                    <th scope="col">Opciones</th>
+                                </tr>
+                            </thead>
+                         <tbody>
+                                <tr>
+                                    <th><?php echo $nombre;?></th>
+                                    <th><?php echo $ape;?></th>
+                                    <th><?php echo $user;?></th>
+                                    <th><?php echo $fono;?></th>
+                                    <th><?php echo $rut;?></th>
+                                    <th><?php echo $correo;?></th>
+                                    <th><?php echo $direc;?></th>
+
+                                    <th>
+                                        <a href="Actualizar_datos.html" 
+                                        class="btn btn-warning">Actualizar</a>
+                                    </th>
+                                </tr>
+                            </tbody>
+                         </table>
 

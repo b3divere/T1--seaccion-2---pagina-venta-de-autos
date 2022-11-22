@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<title>Regristro de cuenta</title> 
+	<title>Actualizar datos de cuenta</title> 
 	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=3.0, minimum-scale=1.0">
     <script src="https://kit.fontawesome.com/f810ecf29a.js" crossorigin="anonymous"></script> >
 	<link rel="stylesheet" href="estilos.css">
@@ -10,10 +10,10 @@
 
 </head>  
 <body>
- <form action="login-registro.php" method="POST" class="formulario">
+ <form action="actualizar_datos.php" method="POST" class="formulario">
     
-    <h1>Registrate</h1>
-    <p>Escribe tus datos y luego revisaremos estos.</p>
+    <h1>Actualiza tus datos</h1>
+
     <div class="contenedor">
      
         <div class="input-contenedor">
@@ -26,22 +26,10 @@
             <input type="text" name="apellido" placeholder="Apellido">
             
         </div>
-   
-        <div class="input-contenedor">
-            <i class="fas fa-user icon"></i>
-            <input type="text" name="usuario" placeholder="Nombre de Usuario">
-            
-        </div>
 
         <div class="input-contenedor">
             <i class="fas fa-phone icon"></i>
             <input type="text" name="Ncontacto" placeholder="Fono">
-            
-        </div>
-
-        <div class="input-contenedor">
-            <i class="fas fa-user icon"></i>
-            <input type="text" name="rut" placeholder="Rut">
             
         </div>
 
@@ -56,16 +44,8 @@
          <input type="text" name="direccion" placeholder="Direccion">
          
         </div>
-         
-        <div class="input-contenedor">
-            <i class="fas fa-key icon"></i>
-            <input type="password" name="clave" placeholder="Contraseña">
-         
-        </div>
 
-        <input type="submit" name="enviar" value="Registrate" class="button">
-        <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
-        <p>¿Ya tienes una cuenta?<a class="link" href="login.php">Iniciar Sesion</a></p>
+        <input type="submit" name="enviar" value="Actualizar" class="button">
     </div>
     </form>
 </body>
