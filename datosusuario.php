@@ -7,9 +7,9 @@ $sql = "SELECT `nombre`, `apellido`, `usuario`, `Ncontacto`,
  `rut`, `correo`, `direccion` FROM Usuarios  WHERE usuario=$usuar";
  
 $conectar=conn();
-$resultado = $conectar ->query($sql);
+//$resultado = $conectar ->query($sql);
 
- while($data = $resultado->fetch_assoc()){
+ //while($data = $resultado->fetch_assoc()){
 
         $nombre  = $data['nombre'];
         $ape  = $data['apellido'];
@@ -19,7 +19,7 @@ $resultado = $conectar ->query($sql);
         $correo  = $data['correo'];
         $direc  = $data['direccion'];
 
- }
+ //}
 
 // inicia una sesion
 if(!isset($_SESSION['usuario'])){

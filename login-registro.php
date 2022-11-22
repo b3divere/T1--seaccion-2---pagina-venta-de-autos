@@ -2,19 +2,19 @@
 include_once('db.php');
 
 $nombre = $_POST['nombre'];
-$usuario = $_POST['usuario'];
 $ape = $_POST['apellido'];
+$user = $_POST['usuario'];
+$telefono = $_POST['Ncontacto'];
 $rut = $_POST['rut'];
-$direcc = $_POST['direccion'];
-$telefono = $_POST['telefono'];
 $email = $_POST['correo'];
+$direcc = $_POST['direccion'];
 $contrasena = md5($_POST['clave']);
 
 $conectar=conn();
 
 // query o consulta
-$query = "INSERT INTO  Usuarios(nombre, apellido, usuario, Ncontacto, rut, correo, direccion, clave)
-        VALUES ('$nombre','$ape','$usuario','$rut','$direcc','$telefono','$email','$contrasena')";
+$query = "INSERT INTO `Usuarios`(`nombre`, `apellido`, `usuario`, `Ncontacto`, `rut`, `correo`, `direccion`, `clave`) 
+VALUES ('$nombre','$ape','$user','$telefono','$rut','$email','$direcc','$contrasena')";
 
 // Verificar que el correo no se repita y ya este inscrito
 
