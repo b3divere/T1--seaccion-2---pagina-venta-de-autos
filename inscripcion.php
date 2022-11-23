@@ -68,7 +68,7 @@ if(!isset($_SESSION['usuario'])){
 				<nav class="fh5co-main-nav">
 					<ul>
 						<li><a href="index.html"><span>Inicio</span></a></li>
-						<li><a href="vehiculos.html"><span>Vehículos</span></a></li>
+						<li><a href="vehiculos.php"><span>Vehículos</span></a></li>
 						<li class="fh5co-active"><a href="inscripcion.php"><span>Inscripción</span></a></li>
 						<li><a href="contacto.html"><span>Contacto</span></a></li>
 						<li><a href="login.php"><span>Accede a tu cuenta aqui</span></a></li>
@@ -108,7 +108,7 @@ if(!isset($_SESSION['usuario'])){
 						<p>Datos</p>
 						<div class="col-md-6">
 							
-		<form action="formulario.php" method= "get">
+		<form action="formulario.php" method="POST" enctype="multipart/form-data">
 
   				
 			<div class="form-group">
@@ -117,18 +117,18 @@ if(!isset($_SESSION['usuario'])){
 				  <p>
 					    Tipo De Vehículo:<br>
 
-					    <input type="radio" name="Vehiculo" value="Automovil"> Automovil <br>
-					    <input type="radio" name="Vehiculo" value="Motocicleta"> Motocicleta <br>
-					    <input type="radio" name="Vehiculo" value="Camion"> Camion <br>
-					    <input type="radio" name="Vehiculo" value="CasaRodante"> CasaRodante <br>
-					    <input type="radio" name="Vehiculo" value="Bus"> Bus <br>
-					    <input type="radio" name="Vehiculo" value="Maquinaria"> Maquinaria <br>
+					    <input type="radio" name="vehiculo" value="Automovil"> Automovil <br>
+					    <input type="radio" name="vehiculo" value="Motocicleta"> Motocicleta <br>
+					    <input type="radio" name="vehiculo" value="Camion"> Camion <br>
+					    <input type="radio" name="vehiculo" value="CasaRodante"> CasaRodante <br>
+					    <input type="radio" name="vehiculo" value="Bus"> Bus <br>
+					    <input type="radio" name="vehiculo" value="Maquinaria"> Maquinaria <br>
+						<input type="file" required="" name="imagen"/>
 					  </p>
 					 <p><label>Marca: <input type="text" name="marca"></label></p>
 					 <p><label>Modelo: <input type="text" name="modelo"></label></p>
    					 <p><label>Patente: <input type="text" name="patente"></label></p>
    					 <p><label>Precio: <input type="text" name="precio"></label></p>
-					 <p><label>Rut usuario: <input type="text" name="rut"></label></p>
 
  			 </fieldset>
 
@@ -137,13 +137,9 @@ if(!isset($_SESSION['usuario'])){
 				</div>
 					</div>
 					<div>
-						<p>Fotos</p>
-							<label for="myfile">Subir imagen de tu vehículo</label>
-							<p>Imágenes con formato JPG, GIF y PNG</p>
-							<input type="file" name="imagenes1">
-							<input type="file" name="imagenes2">
-							<input type="file" name="imagenes3">
-							<input type="file" name="imagenes4">
+						<p>Foto</p>
+							<label for="imagen">Subir imagen de tu vehículo</label>
+							<p>Imágenes con formato JPG y PNG</p>
 					</div>
 				</div>
 				<p>Verificaremos que esté todo correcto y activaremos tu publicación</p>
