@@ -21,7 +21,7 @@ async function catalogovehiculos() {
         p1.innerHTML = vehiculo.marca + " " + vehiculo.modelo;
         p2.innerHTML = "$" + vehiculo.precio;
         button.innerHTML = "Ver más";
-        button.setAttribute("onclick", "verpopup(popup" + vehiculo.id + ")");
+        button.setAttribute("onclick", "verpopup(popup" + vehiculo.id_vehiculo + ")");
 
         li.appendChild(img);
         li.appendChild(p1);
@@ -34,19 +34,26 @@ async function catalogovehiculos() {
         let li2 = document.createElement("li");
 
         let dialog = document.createElement("dialog");
-        dialog.setAttribute("id", "popup" + vehiculo.id);
+        dialog.setAttribute("id", "popup" + vehiculo.id_vehiculo);
         dialog.setAttribute("class", "popup");
 
         let img2 = document.createElement("img");
         let puno = document.createElement("p");
         let pdos = document.createElement("p");
+        let ptres = document.createElement("p");
+        let pcuatro = document.createElement("p");
 
         img2.src = vehiculo.imagenes;
         puno.innerHTML = vehiculo.marca + " " + vehiculo.modelo;
         pdos.innerHTML = "$" + vehiculo.precio;
+        ptres.innerHTML = vehiculo.patente;
+        pcuatro.innerHTML = vehiculo.dueno;
         dialog.appendChild(img2);
         dialog.appendChild(puno);
         dialog.appendChild(pdos);
+        dialog.appendChild(ptres);
+        dialog.appendChild(pcuatro);
+
 
         li2.appendChild(dialog);
         ulvehiculos.appendChild(li2);
