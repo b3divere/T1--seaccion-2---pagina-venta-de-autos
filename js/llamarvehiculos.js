@@ -42,17 +42,21 @@ async function catalogovehiculos() {
         let pdos = document.createElement("p");
         let ptres = document.createElement("p");
         let pcuatro = document.createElement("p");
+        let pcinco = document.createElement("p");
 
         img2.src = vehiculo.imagenes;
         puno.innerHTML = vehiculo.marca + " " + vehiculo.modelo;
         pdos.innerHTML = "$" + vehiculo.precio;
         ptres.innerHTML = vehiculo.patente;
         pcuatro.innerHTML = vehiculo.dueno;
+        pcinco.innerHTML = vehiculo.tipoV;
+      
         dialog.appendChild(img2);
         dialog.appendChild(puno);
         dialog.appendChild(pdos);
         dialog.appendChild(ptres);
         dialog.appendChild(pcuatro);
+        dialog.appendChild(pcinco);
 
 
         li2.appendChild(dialog);
