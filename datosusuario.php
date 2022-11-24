@@ -22,6 +22,17 @@ $resultado = $conectar ->query($sql);
 
  }
 
+ $sql2 = "SELECT `id_vehiculo`,`marca`, `modelo`, `patente`, `precio`,
+ `imagenes` FROM vehiculos  WHERE dueno= '$usuar'";
+ 
+$conectar=conn();
+
+$resultado2 = $conectar ->query($sql2);
+
+ while($row=mysqli_fetch_array($resultado)){
+
+ }
+
 // inicia una sesion
 if(!isset($_SESSION['usuario'])){
     echo '
@@ -114,6 +125,7 @@ if(!isset($_SESSION['usuario'])){
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5">
+                    <h1>Informacion</h1>
                     <table class="table"  >
                             <thead class="table-dark">
                                 <tr>
@@ -145,6 +157,49 @@ if(!isset($_SESSION['usuario'])){
                             </tbody>
                          </table>
 						<h2>Vehiculos Publicados</h2>
+
+                        <table class="table"  >
+                            <thead class="table-dark">
+                                <tr>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Patente</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Imagenes</th>
+                                    <th scope="col">Opciones</th>
+                                    <th ></th>
+                                </tr>
+                            </thead>
+                         <tbody>
+                            <?php while($row=mysqli_fetch_array($resultado2)){
+                                ?>
+                                <tr>
+
+                                    <th><?php echo $row['marca']?></th>
+                                    <th><?php echo $row['modelo']?></th>
+                                    <th><?php echo $row['patente']?></th>
+                                    <th><?php echo $row['precio']?></th>
+                                    <th><?php echo $row['imagenes']?></th>
+                                    <th>
+                                        <a href="#" 
+                                        class="btn btn-warning">Editar</a>
+                                    </th>
+                                    <th>
+                                    <a href="eliminar_publicacion.php?id=<?php echo $row['id_vehiculo']?>"
+                                        class="btn btn-danger">Eliminar Publicacion</a>
+                                    </th>
+                                </tr>
+                                <?php
+                                }
+                                ?>
+                                
+                            </tbody>
+                         </table>
+
+
+
+
+                    
 					</div>
 
 				</div>
