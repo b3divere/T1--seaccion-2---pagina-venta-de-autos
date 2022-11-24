@@ -14,7 +14,7 @@ $conectar=conn();
 
 // query o consulta
 $query = "INSERT INTO `Usuarios`(`nombre`, `apellido`, `usuario`, `Ncontacto`, `rut`, `correo`, `direccion`, `clave`) 
-VALUES ('$nombre','$ape','$user','$telefono','$rut','$email','$direcc','$contrasena')";
+          VALUES ('$nombre','$ape','$user','$telefono','$rut','$email','$direcc','$contrasena')";
 
 // Verificar que el correo no se repita y ya este inscrito
 

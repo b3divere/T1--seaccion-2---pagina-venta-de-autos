@@ -99,7 +99,7 @@ if(!isset($_SESSION['usuario'])){
                <nav class="fh5co-main-nav">
                    <ul>
                        <li><a href="index.html"><span>Inicio</span></a></li>
-                       <li><a href="vehiculos.html"><span>Vehículos</span></a></li>
+                       <li><a href="vehiculos.php"><span>Vehículos</span></a></li>
                        <li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
                        <li><a href="contacto.html"><span>Contacto</span></a></li>
                        <li class="item-r"><a href="cerrar_sesion.php">Cerrar sesion</a></li>
@@ -187,7 +187,7 @@ if(!isset($_SESSION['usuario'])){
                                     </th>
                                     <th>
                                     <a href="eliminar_publicacion.php?id=<?php echo $row['id_vehiculo']?>"
-                                        class="btn btn-danger">Eliminar Publicacion</a>
+                                        class="btn btn-danger">Eliminar</a>
                                     </th>
                                 </tr>
                                 <?php
@@ -218,7 +218,7 @@ if(!isset($_SESSION['usuario'])){
                <div class="col-md-3 col-md-push-1">
                    <h3>Más</h3>
                    <ul>
-                       <li><a href="vehiculos.html">Productos</a></li>
+                       <li><a href="vehiculos.php">Productos</a></li>
                        <li><a href="inscripcion.html">Servicios</a></li>
                        <li><a href="contacto.html">Contacto</a></li>
                    </ul>
@@ -259,35 +259,3 @@ if(!isset($_SESSION['usuario'])){
 
    </body>
 </html>
-<h1>Datos del Usuario</h1>
-                       <table class="table">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th scope="col">Nombre</th>
-                                    <th scope="col">Apellido</th>
-                                    <th scope="col">Usuario</th>
-                                    <th scope="col">Telefono</th>
-                                    <th scope="col">Rut</th>
-                                    <th scope="col">Correo</th>
-                                    <th scope="col">Direccion</th>
-                                    <th scope="col">Opciones</th>
-                                </tr>
-                            </thead>
-                         <tbody>
-                                <tr>
-                                    <th><?php echo $nombre;?></th>
-                                    <th><?php echo $ape;?></th>
-                                    <th><?php echo $user;?></th>
-                                    <th><?php echo $fono;?></th>
-                                    <th><?php echo $rut;?></th>
-                                    <th><?php echo $correo;?></th>
-                                    <th><?php echo $direc;?></th>
-
-                                    <th>
-                                        <a href="Actualizar_datos.html" 
-                                        class="btn btn-warning">Actualizar</a>
-                                    </th>
-                                </tr>
-                            </tbody>
-                         </table>
-
