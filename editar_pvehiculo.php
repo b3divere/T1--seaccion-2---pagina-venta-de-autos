@@ -55,7 +55,7 @@ $row=mysqli_fetch_array($query);
         </div>
         <div class="input-contenedor">
         <p>
-            Tipo De Vehi­culo:<br>
+            Tipo De Vehiculo:<br>
 
             <input type="radio" name="Vehiculo" value="Automovil" Required > Automovil <br>
             <input type="radio" name="Vehiculo" value="Motocicleta"> Motocicleta <br>
