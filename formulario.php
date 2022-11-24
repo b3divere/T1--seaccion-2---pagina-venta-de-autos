@@ -18,4 +18,6 @@
 
   $sql = mysqli_query($conectar,"INSERT INTO vehiculos(marca,modelo,patente,precio,imagenes,dueno,tipoV)
                                  VALUES('$marc','$mod','$pat','$prec','$ima','$usu','$tipo')");
+
+  header('Location: vehiculos.php');
 ?>
