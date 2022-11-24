@@ -6,7 +6,6 @@ $con=conn();
 $nombre = $_POST['nombre'];
 $ape = $_POST['apellido'];
 $telefono = $_POST['Ncontacto'];
-
 $email = $_POST['correo'];
 $direcc = $_POST['direccion'];
 

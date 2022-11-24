@@ -125,7 +125,7 @@ if(!isset($_SESSION['usuario'])){
 			<div class="container">
 				<div class="row">
 					<div class="col-md-5">
-                    <h1>Informacion</h1>
+                    <h1>Tu Informacion</h1>
                     <table class="table"  >
                             <thead class="table-dark">
                                 <tr>
@@ -157,6 +157,7 @@ if(!isset($_SESSION['usuario'])){
                             </tbody>
                          </table>
 						<h1>Vehiculos Publicados</h1>
+                        	<h3>Recuerda eliminar tus vehiculos vendidos</h3>
 
                         <table class="table"  >
                             <thead class="table-dark">
@@ -179,7 +180,7 @@ if(!isset($_SESSION['usuario'])){
                                     <th><?php echo $row['modelo']?></th>
                                     <th><?php echo $row['patente']?></th>
                                     <th><?php echo $row['precio']?></th>
-                                    <th><?php echo $row['imagenes']?></th>
+                                    <th><img src = "data:image/jpg;base64,<?php echo base64_encode($row['imagenes']);?>"></th>
                                     <th>
                                         <a href="editar_pvehiculo.php?id=<?php echo $row['id_vehiculo']?>" 
                                         class="btn btn-warning">Editar</a>
