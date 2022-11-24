@@ -123,7 +123,6 @@ if(!isset($_SESSION['usuario'])){
 					    <input type="radio" name="vehiculo" value="CasaRodante"> CasaRodante <br>
 					    <input type="radio" name="vehiculo" value="Bus"> Bus <br>
 					    <input type="radio" name="vehiculo" value="Maquinaria"> Maquinaria <br>
-						<input type="file" required="" name="imagen"/>
 					  </p>
 					 <p><label>Marca: <input type="text" name="marca"></label></p>
 					 <p><label>Modelo: <input type="text" name="modelo"></label></p>
@@ -139,7 +138,8 @@ if(!isset($_SESSION['usuario'])){
 					<div>
 						<p>Foto</p>
 							<label for="imagen">Subir imagen de tu vehículo</label>
-							<p>Imágenes con formato JPG y PNG</p>
+							<p>Imágenes con formato JPG</p>
+							<input type="file" required="" name="imagen">
 					</div>
 				</div>
 				<p>Verificaremos que esté todo correcto y activaremos tu publicación</p>

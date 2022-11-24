@@ -1,4 +1,7 @@
-
+<?php
+	include("db.php");
+	$con = conn();
+?>
 <!DOCTYPE html>
 <html class="no-js"> 
    <head>
@@ -49,7 +52,7 @@
    <script src="js/modernizr-2.6.2.min.js"></script>
    <!-- FOR IE9 below -->
    <script src="https://kit.fontawesome.com/150af63249.js"></script>
-   <script src="js/popup.js"></script>
+   <script src="js/llamarvehiculos.js"></script>
    <!--[if lt IE 9]>
    <script src="js/respond.min.js"></script>
    <![endif]-->
@@ -91,74 +94,21 @@
 	   <div class="fh5co-section">
 		   <div class="container">
 			<h2 class="titulo">Catálogo de vehículos</h2>
-				<ul class="autos">
-					<li>
-						<img src="images/Audia1_500x500.jpg">
-						<p>Audi A1</p>
-						<p>$25.000.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup1">Ver más</article>
-					</li>
-					<li>
-						<img src="images/honda_jazz_1_500x500.jpg">
-						<p>Honda Jazz</p>
-						<p>$10.000.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup2">Ver más</article>
-					</li>
-					<li>
-						<img src="images/hyundaikona_1_500x500.jpg">
-						<p>Hyundai Kona</p>
-						<p>$12.000.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup3">Ver más</article>
-					</li>
-					<li>
-						<img src="images/fordka_1_500x500.jpg">
-						<p>Ford Ka</p>
-						<p>$12.000.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup4">Ver más</article>
-					</li>
-					<li>
-						<img src="images/chevroletaveo_500x500.jpg">
-						<p>Chevrolet Aveo</p>
-						<p>$13.000.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup5">Ver más</article>
-					</li>
-					<li>
-						<img src="images/chevroletvolt_500x500.jpg">
-						<p>Chevrolet Volt</p>
-						<p>$13.500.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup6">Ver más</article>
-					</li>
-					<li>
-						<img src="images/fiat500x_1_500x500.jpg">
-						<p>Fiat 500X</p>
-						<p>$11.000.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup7">Ver más</article>
-					</li>
-					<li>
-						<img src="images/ladapriora_1_500x500.jpg">
-						<p>Lada Priora</p>
-						<p>$9.000.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup8">Ver más</article>
-					</li>
-					<li>
-						<img src="images/roycecullinam_1_500x500.jpg">
-						<p>Rolls Royce Cullinan</p>
-						<p>$355.000.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup9">Ver más</article>
-					</li>
-					<li>
-						<img src="images/mercedesglb_1_500x500.jpg">
-						<p>Mercedes Benz GLB</p>
-						<p>$21.500.000</p>
-						<article onclick="verpopup()" class="abrir-popup" id="abrir-popup10"">Ver más</article>
-					</li>
-				</ul>
-				<div class="overlay active" id="overlay" >
-					<div class="popup" id="popup">
-						<a onclick="verpopup()" href="#" id="cerrar-popup" class="cerrar-popup"><i class="fa-solid fa-xmark"></i></a>
-						<h3>DATOS DEL VEHÍCULO</h3>
-					</div>
+			<?php
+				$query = "SELECT * FROM vehiculos";
+				$res = $con->query($query);
+
+				while($row = $res->fetch_assoc()){
+			?>
+				<div class="autos" id="lista-vehiculos">
+					<div><?php echo $row['marca'];?></div>
+					<div><?php echo $row['modelo'];?></div>
+					<div><img src="data:image/jpg;base64,<?php echo base64_encode($row['imagenes']);?>"></div>
 				</div>
+			<?php
+			}
+			?>	
+			</div>
 			   <div class="row">
 				   <div class="col-md-12">
 					   <div class="row">
