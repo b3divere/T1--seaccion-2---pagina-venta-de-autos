@@ -156,7 +156,7 @@ if(!isset($_SESSION['usuario'])){
                                 </tr>
                             </tbody>
                          </table>
-						<h2>Vehiculos Publicados</h2>
+						<h1>Vehiculos Publicados</h1>
 
                         <table class="table"  >
                             <thead class="table-dark">
@@ -181,7 +181,7 @@ if(!isset($_SESSION['usuario'])){
                                     <th><?php echo $row['precio']?></th>
                                     <th><?php echo $row['imagenes']?></th>
                                     <th>
-                                        <a href="#" 
+                                        <a href="editar_pvehiculo.php?id=<?php echo $row['id_vehiculo']?>" 
                                         class="btn btn-warning">Editar</a>
                                     </th>
                                     <th>
