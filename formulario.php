@@ -5,6 +5,7 @@
   //Me conecto al motor de BD que corre en localhost, con el usuario root (sin password), y selecciono la BD del proyecto
   $conectar=conn();
   //Recibo el porcentaje y el Id de categoría desde el formulario
+  $usu = $_SESSION['usuario'];
   $marc = $_POST['marca'];
   $mod = $_POST['modelo'];
   $pat = $_POST['patente'];
@@ -15,6 +16,6 @@
   //Realizo la consulta SQL (llamada al Proc Almacenado)
   //$respuesta = mysqli_query($conectar, "CALL NewCar('$marc','$mod','$pat','$tipo','$prec','$rut','$ima')");
 
-  $sql = mysqli_query($conectar,"INSERT INTO vehiculos(marca,modelo,patente,precio,imagenes,tipoV)
-                                 VALUES('$marc','$mod','$pat','$prec','$ima','$tipo')");
+  $sql = mysqli_query($conectar,"INSERT INTO vehiculos(marca,modelo,patente,precio,imagenes,dueno,tipoV)
+                                 VALUES('$marc','$mod','$pat','$prec','$ima','$usu','$tipo')");
 ?>
