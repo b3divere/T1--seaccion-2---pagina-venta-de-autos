@@ -99,7 +99,7 @@ if(!isset($_SESSION['usuario'])){
                <nav class="fh5co-main-nav">
                    <ul>
                        <li><a href="index.html"><span>Inicio</span></a></li>
-                       <li><a href="vehiculos.html"><span>Vehículos</span></a></li>
+                       <li><a href="vehiculos.php"><span>Vehículos</span></a></li>
                        <li><a href="inscripcion.php"><span>Vende tu vehiculo aqui</span></a></li>
                        <li><a href="contacto.html"><span>Contacto</span></a></li>
                        <li class="item-r"><a href="cerrar_sesion.php">Cerrar sesion</a></li>
@@ -218,7 +218,7 @@ if(!isset($_SESSION['usuario'])){
                <div class="col-md-3 col-md-push-1">
                    <h3>Más</h3>
                    <ul>
-                       <li><a href="vehiculos.html">Productos</a></li>
+                       <li><a href="vehiculos.php">Productos</a></li>
                        <li><a href="inscripcion.html">Servicios</a></li>
                        <li><a href="contacto.html">Contacto</a></li>
                    </ul>

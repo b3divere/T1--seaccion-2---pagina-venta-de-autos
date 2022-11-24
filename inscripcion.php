@@ -158,7 +158,7 @@ if(!isset($_SESSION['usuario'])){
 				<div class="col-md-3 col-md-push-1">
 					<h3>Más</h3>
 					<ul>
-						<li><a href="vehiculos.html">Productos</a></li>
+						<li><a href="vehiculos.php">Productos</a></li>
 						<li><a href="#">Servicios</a></li>
 						<li><a href="contacto.html">Contacto</a></li>
 					</ul>
